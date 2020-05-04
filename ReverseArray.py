@@ -1,7 +1,7 @@
-# Reverse and return an array without using any built in array functionality
 
 
 def reverse_array(arr):
+    # Reverse and return an array without using any built in array functionality
 
     newArr = []
 
@@ -15,6 +15,13 @@ def reverse_array(arr):
 
     if solution == 2:
         # Reverse an return the same array without creating a new array or using any built-in array functionality
+
+        for i in range(int(len(arr)/2)):
+            start_element = arr[i]
+            end_element = arr[-(i + 1)]
+            arr[i] = end_element
+            arr[-(i + 1)] = start_element
+
         return arr
 
 
