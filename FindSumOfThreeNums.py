@@ -16,8 +16,12 @@ def sum_of_three_nums(nums, n):
             num2 = nums[j]
             keys = triplets.keys()
             if n - (num1 + num2) in keys:
-                allSums.append([n - (num1 + num2), num1, num2])
+                tripletArr = [n - (num1 + num2), num1, num2]
+                tripletArr.sort()
+                if tripletArr not in allSums:
+                    allSums.append(tripletArr)
 
+    allSums.sort()
     return allSums
 
 
