@@ -26,6 +26,6 @@ def reverse_array(arr):
 
 
 if __name__ == '__main__':
-    array = ['d', 'l', 'e', 'e', 'n', 'n', 'a', 'r', 'a', 't']
+    array = ['!', 'd', 'l', 'e', 'e', 'n', 'n', 'a', 'r', 'a', 't']
     r = reverse_array(array)
     print(r)
