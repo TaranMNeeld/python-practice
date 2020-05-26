@@ -19,6 +19,7 @@ def making_change(amount, denominations):
             ways_to_make_change.append(current_change)
             print(ways_to_make_change)
 
+
     return ways_to_make_change
 
 
