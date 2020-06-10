@@ -25,9 +25,7 @@ def load():
             file_content = player_data.read()
             data = json.loads(file_content)
             player_data.close()
-            print(data)
-            player = Player(data)
             loading = False
-            return player
+            return data
         else:
             print('That account does not exist, please try again.')
