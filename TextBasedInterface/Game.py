@@ -23,12 +23,15 @@ def start():
             if cmd == 'exit':
                 running = False
         else:
-            print('Type one of the following commands: battle, save, exit')
+            print('Type one of the following commands: heal, battle, save, exit')
             cmd = str(input())
             if cmd == 'save':
                 PlayerData.save(player)
             if cmd == 'exit':
                 running = False
+            if cmd == 'heal':
+                player.restore_hp(1000)
+            player.clamp_hp()
             render(player)
 
 
