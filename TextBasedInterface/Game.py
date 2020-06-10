@@ -1,36 +1,38 @@
-import inspect
-import json
-import os
 from Render import render
 from Player import Player
 import PlayerData
 from CreateAccount import create_account
 
 running = True
+player = Player()
 
 
 def start():
     global running
-    player = Player()
-    player_class = inspect.getmembers(player)
-    player_stats = [member[1] for member in player_class if member[0] == '__dict__'][0]['data']
 
     while running:
-        print(player_stats)
-        print('Type one of the following commands: save, load, create, exit')
-        cmd = str(input())
 
         if player.data['name'] is None:
+            print('Type one of the following commands: save, load, create, exit')
+            cmd = str(input())
             if cmd == 'load':
-                player = PlayerData.load()
+                player.data = PlayerData.load()
+                print(player.data)
             if cmd == 'create':
                 create_account()
             if cmd == 'exit':
                 running = False
         else:
+            print('Type one of the following commands: heal, battle, save, exit')
+            cmd = str(input())
             if cmd == 'save':
                 PlayerData.save(player)
-            render(player_stats)
+            if cmd == 'exit':
+                running = False
+            if cmd == 'heal':
+                player.restore_hp(1000)
+            player.clamp_hp()
+            render(player)
 
 
 if __name__ == '__main__':
