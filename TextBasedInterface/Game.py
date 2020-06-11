@@ -1,10 +1,14 @@
 from Render import render
 from Player import Player
+from Enemy import Enemy
+import Battle
 import PlayerData
 from CreateAccount import create_account
 
 running = True
 player = Player()
+skeleton = Enemy()
+skeleton.data['name'] = 'Skeleton'
 
 
 def start():
@@ -31,6 +35,8 @@ def start():
                 running = False
             if cmd == 'heal':
                 player.restore_hp(1000)
+            if cmd == 'battle':
+                Battle.render_battle(player, skeleton)
             player.clamp_hp()
             render(player)
 

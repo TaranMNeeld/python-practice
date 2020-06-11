@@ -18,3 +18,6 @@ class Player:
         if self.data['current_hp'] < 0:
             self.data['current_hp'] = 0
             self.dead = True
+
+    def attack(self):
+        return self.data['base_dmg']
