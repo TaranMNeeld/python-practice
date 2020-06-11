@@ -1,1 +1,1 @@
-{"name": "Taran", "level": 1, "max_hp": 100, "current_hp": 30, "base_dmg": 2}
+{"name": "Taran", "level": 2, "max_hp": 200, "current_hp": 95, "base_dmg": 3, "req_xp": 100, "current_xp": 0}
