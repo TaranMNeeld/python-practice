@@ -11,7 +11,10 @@ def render_battle(player, enemy):
         render_bar(player.data['max_hp'], player.data['current_hp'])
         render_bar(enemy.data['max_hp'], enemy.data['current_hp'])
 
-        if player.data['current_hp'] <= 0 or enemy.data['current_hp'] <= 0:
+        if player.data['current_hp'] <= 0:
+            break
+        if enemy.data['current_hp'] <= 0:
+            player.data['current_xp'] += enemy.data['level'] * 25
             break
 
         print('Type one of the following commands: attack, flee, heal')

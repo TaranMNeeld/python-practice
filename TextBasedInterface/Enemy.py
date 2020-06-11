@@ -5,3 +5,6 @@ class Enemy:
 
     def attack(self):
         return self.data['base_dmg']
+
+    def __del__(self):
+        print('Destroyed enemy')
