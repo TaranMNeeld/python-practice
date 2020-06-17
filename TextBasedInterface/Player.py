@@ -5,11 +5,13 @@ class Player:
     def __init__(self, data={
                             'name': None,
                             'level': 1,
-                            'max_hp': 0,
+                            'max_hp': 100,
                             'current_hp': 100,
                             'base_dmg': 2,
-                            'req_xp': 0,
-                            'current_xp': 0
+                            'req_xp': 50,
+                            'current_xp': 0,
+                            'inventory': [],
+                            'coins': 0
                             }):
         self.data = data
 
