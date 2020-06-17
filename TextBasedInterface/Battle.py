@@ -8,6 +8,7 @@ battling = True
 
 def render_battle(player, enemy):
     global battling
+    battling = True
     while battling:
         render_bar(player.data['max_hp'], player.data['current_hp'])
         render_bar(enemy.data['max_hp'], enemy.data['current_hp'])

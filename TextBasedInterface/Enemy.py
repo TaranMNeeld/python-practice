@@ -7,4 +7,4 @@ class Enemy:
         return self.data['base_dmg']
 
     def __del__(self):
-        print('Destroyed enemy')
+        print('You Defeated the enemy')
