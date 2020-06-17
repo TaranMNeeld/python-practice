@@ -1,12 +1,14 @@
 from Render import render_bar
 from Player import Player
 from Enemy import Enemy
+import random
 
 battling = True
 
 
 def render_battle(player, enemy):
     global battling
+    battling = True
     while battling:
         render_bar(player.data['max_hp'], player.data['current_hp'])
         render_bar(enemy.data['max_hp'], enemy.data['current_hp'])
@@ -14,7 +16,9 @@ def render_battle(player, enemy):
         if player.data['current_hp'] <= 0:
             break
         if enemy.data['current_hp'] <= 0:
+            coins = random.randint(1, enemy.data['level'] * 10)
             player.data['current_xp'] += enemy.data['level'] * 25
+            player.data['coins'] += coins
             break
 
         print('Type one of the following commands: attack, flee, heal')

@@ -34,11 +34,13 @@ def start():
             if cmd == 'heal':
                 player.restore_hp(1000)
             if cmd == 'battle':
-                skeleton = Enemy()
-                skeleton.data['name'] = 'Skeleton'
-                print(skeleton.data)
-                Battle.render_battle(player, skeleton)
-                del skeleton
+                enemy = Enemy()
+                enemy.data['current_hp'] = enemy.data['max_hp']
+                enemy.data['name'] = 'Skeleton'
+                print(enemy.data)
+                Battle.render_battle(player, enemy)
+                # del enemy
+                # print('test')
             player.clamp_hp()
             render(player)
 
