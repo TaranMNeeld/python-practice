@@ -11,7 +11,8 @@ class Player:
                             'req_xp': 50,
                             'current_xp': 0,
                             'inventory': [],
-                            'coins': 0
+                            'coins': 0,
+                            'current_room': None
                             }):
         self.data = data
 
