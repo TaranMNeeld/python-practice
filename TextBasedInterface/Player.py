@@ -1,4 +1,4 @@
-
+from Shop import Shop
 
 class Player:
 
@@ -11,9 +11,20 @@ class Player:
                             'req_xp': 50,
                             'current_xp': 0,
                             'inventory': [],
-                            'coins': 0
+                            'coins': 0,
+                            'current_room': None
                             }):
         self.data = data
+        self.inv_open = False
+
+    def buy_item(self, item):
+        if Shop.has_item(item) and self.data['coins'] >= item['value']:
+            self.data['inventory'].append(item)
+            self.data['coins'] -= item['value']
+
+    def toggle_inventory(self):
+        self.inv_open = not self.inv_open
+        return self.inv_open
 
     def restore_hp(self, amount):
         if self.data['current_hp'] == self.data['max_hp']:
