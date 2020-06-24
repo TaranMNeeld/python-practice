@@ -4,9 +4,11 @@ from Enemy import Enemy
 import Battle
 import PlayerData
 from CreateAccount import create_account
+from Shop import Shop
 
 running = True
 player = Player()
+shop = Shop()
 
 
 def start():
@@ -25,8 +27,12 @@ def start():
             if cmd == 'exit':
                 running = False
         else:
-            print('Type one of the following commands: heal, battle, save, exit')
+            if player.data['current_room'] == 'shop':
+                print('Type one of the following commands: inspect item_name, heal, battle, shop, save, exit')
+            else:
+                print('Type one of the following commands: heal, battle, shop, save, exit')
             cmd = str(input())
+
             if cmd == 'save':
                 PlayerData.save(player)
             if cmd == 'exit':
@@ -41,6 +47,16 @@ def start():
                 Battle.render_battle(player, enemy)
                 # del enemy
                 # print('test')
+            if cmd == 'shop':
+                player.data['current_room'] = 'shop'
+                shop.get_items()
+            if 'inspect' in cmd:
+                cmds = cmd.split()
+                item = cmds[1]
+                shop_items = [item.name for item in shop.items]
+                if item in shop_items:
+                    print(item)
+
             player.clamp_hp()
             render(player)
 

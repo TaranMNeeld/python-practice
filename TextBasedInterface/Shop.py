@@ -8,13 +8,12 @@ shop_items = {
 
 
 class Shop:
-    def __init__(self, name, items=[item for item in shop_items]):
-        self.name = name
+    def __init__(self, items=[shop_items[item] for item in shop_items]):
         self.items = items
 
     def get_items(self):
         if len(self.items):
-            return print(f'! The shop has the following items: {[item.name for item in self.items]}\n'
+            return print(f'! The shop has the following items: {[(item.name, f"Price: {item.value}") for item in self.items]}\n'
                          f'Enter [buy item_name]')
 
     def has_item(self, item):
