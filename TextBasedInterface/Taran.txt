@@ -1,1 +1,1 @@
-{"name": "Taran", "level": 3, "max_hp": 300, "current_hp": 192, "base_dmg": 4, "req_xp": 150, "current_xp": 0, "inventory": [], "coins": 38}
+{"name": "Taran", "level": 1, "max_hp": 100, "current_hp": 100, "base_dmg": 2, "req_xp": 50, "current_xp": 0, "inventory": [], "coins": 0, "current_room": null}
